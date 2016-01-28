@@ -7,15 +7,17 @@ export default class ReactContentView extends Component {
 		this.state = {};
 	}
 
-	get navigatorBehaviors() {
+	static get navigatorBehaviors() {
 		return ['IHasStateTransition'];
 	}
 
 	transitionIn(callOnComplete) {
+		this.setState({ style: { display: '' }});
 		callOnComplete();
 	}
 
 	transitionOut(callOnComplete) {
+		this.setState({ style: { display: 'none' }});
 		callOnComplete();
 	}
 
@@ -25,7 +27,7 @@ export default class ReactContentView extends Component {
 
 	render() {
 		return (
-      <section className="page-content react">
+      <section style={this.state.style} className="page-content react">
         {this.props.children}
 				<button onClick={this.toggleExpand.bind(this)}>expand</button>
       </section>

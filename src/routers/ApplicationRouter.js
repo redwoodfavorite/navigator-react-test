@@ -49,7 +49,7 @@ export default Backbone.CommandRouter.extend({
 
 		this.stateViewMap
 			.mapState('myapp')
-			.toView(ReactHeader)
+			.toComponent(ReactHeader)
 			.withArguments({ injector: this.injector })
 			.inside('header');
 
@@ -68,7 +68,7 @@ export default Backbone.CommandRouter.extend({
 		const reactContentBlockRecipe = (
 			this.stateViewMap
 				.mapState('myapp/page3')
-				.toView(ReactContentView)
+				.toComponent(ReactContentView)
 				.withArguments({ injector: this.injector })
 		);
 
@@ -78,30 +78,21 @@ export default Backbone.CommandRouter.extend({
 			.withArguments({ injector: this.injector })
 			.withParent(contentBlockRecipe);
 
-		// this.stateViewMap
-		// 	.mapState('myapp/page1')
-		// 	.toView(<ReactContent />)
-		// 	.withArguments({ injector: this.injector })
-		// 	.withParent(page1Recipe)
-		// 	.inside('section.react');
-
-		// Should be able to add React element to backbone recipe
-
 		this.stateViewMap
 			.mapState('myapp/page2')
-			.toView(Page2View)
+			.toComponent(Page2View)
 			.withArguments({ injector: this.injector })
 			.withParent(contentBlockRecipe);
 
 		this.stateViewMap
 			.mapState('myapp/page3')
-			.toView(Page3View)
+			.toComponent(Page3View)
 			.withArguments({ injector: this.injector, key: 1 })
 			.withParent(reactContentBlockRecipe);
 
 			this.stateViewMap
 				.mapState('myapp/page3/expand')
-				.toView(Page4View)
+				.toComponent(Page4View)
 				.withArguments({ injector: this.injector, key: 2 })
 				.withParent(reactContentBlockRecipe);
 	},

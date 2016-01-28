@@ -3,24 +3,31 @@ import React, { Component } from 'react'
 export default class Page3 extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {};
 	}
 
-	get navigatorBehaviors() {
+	static get navigatorBehaviors() {
 		return ['IHasStateTransition'];
 	}
 
 	transitionIn(callOnComplete) {
+		this.setState({ style: { display: '' }});
 		callOnComplete();
 	}
 
 	transitionOut(callOnComplete) {
+		this.setState({ style: { display: 'none' }});
 		callOnComplete();
 	}
 
 	render() {
-		console.log(1);
 		return (
-			<div className="padded react2">REACT IN REACT</div>
+			<div
+			style={this.state.style}
+			className="padded react2">
+				REACT IN REACT
+			</div>
 		);
 	}
 };

@@ -16,10 +16,12 @@ module.exports = Backbone.View.extend({
 	},
 
 	transitionIn(callOnComplete) {
+		this.$el.show();
 		callOnComplete();
 	},
 
 	transitionOut(callOnComplete) {
+		this.$el.hide();
 		callOnComplete();
 	}
 });

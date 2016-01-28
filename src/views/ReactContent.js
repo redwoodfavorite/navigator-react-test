@@ -9,7 +9,7 @@ export default class Page2 extends Component {
 		};
 	}
 
-	get navigatorBehaviors() {
+	static get navigatorBehaviors() {
 		return ['IHasStateTransition'];
 	}
 
